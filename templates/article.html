@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% block article %}
+    {% load staticfiles %}
+
+    <div>
+        <div class="articles col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10">
+            <h6>{{ Article.article_date }}</h6>
+            <h4>{{ Article.article_title }}</h4>
+            <p class="text-justify">{{ Article.article_text }}</p>
+            <br>
+            <p>Comments:</p>
+            {% for comment in Comments %}
+                <div class="comment">
+                    <div class="author_comment">Автор комментария</div>
+                    <div class="text_comment">{{ comment.comments_text }}</div>
+                    <div class="time_comment">21 января 2017</div>
+                </div>
+            {% endfor %}
+            <form class="form" action="/articles/addcomment/{{ Article.id }}/" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" class="button" value="Отправить">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda dignissimos dolor ea, earum fugiat
+illo itaque iure laboriosam magnam nesciunt officia quam repudiandae tempora voluptatem! Quis soluta veniam
+voluptatem.
+
+

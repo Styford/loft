@@ -1,0 +1,51 @@
+.top-header {
+    height: 50px;
+    background-color: rgba(123, 231, 213, 0.4);
+}
+
+.logo {
+    position: absolute;
+}
+.auth {
+    position: relative;
+    text-align: right;
+    top: 15px;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+
+.register input{
+
+}
+.login_form {
+    margin-top: 30px;
+}
+
+.articles {
+    margin-top: 20px;
+}
+
+.form textarea {
+    width: 100%;
+    height: 100px;
+    resize: vertical;
+}
+
+.form {
+    margin-bottom: 15px;
+}
+
+.comment {
+    background-color: rgba(123, 231, 213, 0.4);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.author_comment, .time_comment {
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+}
+
