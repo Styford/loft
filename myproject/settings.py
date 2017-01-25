@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for myproject project.
 
@@ -34,6 +35,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'articles',
+    'extUser',
     'loginsys',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -127,3 +129,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     ]
+
+#Настройка отправки почты
+EMAIL_HOST = "smtp.yandex.ru"
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = "stepan.syzganov@ya.ru"
+EMAIL_HOST_PASSWORD = "Newterr1906421"
