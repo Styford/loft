@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% block login %}
+    {% load staticfiles %}
+    <form class="form-horizontal" action="/auth/change_password/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Пароль</label>
+            <div class="col-sm-3">
+                <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Подтверждение пароля</label>
+            <div class="col-sm-3">
+                <input type="password" name="password2" class="form-control" id="inputPassword3" placeholder="Confirm password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-5">
+                <button type="submit" class="btn btn-default">Изменить пароль</button>
+            </div>
+        </div>
+        {% if login_error %}
+            <label class="error">{{ login_error }}</label>
+        {% endif %}
+    </form>
+{% endblock %}

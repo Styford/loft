@@ -77,12 +77,42 @@ def confirm_registration(request, secret_key):
     if (user is not None) and (user.is_active == False):
         user.is_active = True
         user.save()
+        euser = extUser.objects.get(secret_key=secret_key)
+        euser.secret_key = ''.join(
+            random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for x in range(30))
+        euser.save()
         return redirect("/auth/login/")
     else:
         return redirect("/auth/login/")
 
 
+def restore_password(request):
+    auth.logout(request)
+    args = {}
+    if request.POST:
+        username = request.POST.get('email', '')
+        user = User.objects.get(username=username)
+        euser = extUser.objects.get(user_key=user)
+        euser.secret_key = ''.join(
+            random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for x in range(30))
+        euser.save()
+        message = "Для восстановления перейдите по ссылке //192.168.1.100:8000/auth/restore_password/" + euser.secret_key
+        send_mail('Восстановление пароля', message, 'stepan.syzganov@ya.ru', [username, ], fail_silently=False)
+        return redirect("/auth/login/")
+    return render(request, 'restore_pass.html', args)
 
-# def restore_passwd(request, secret_key):
-#     user = (extUser.objects.get(secret_key=secret_key)).user_key
-#     if (user is not None) and user.is_active:
+
+def confirm_restore(request, secret_key):
+    user = (extUser.objects.get(secret_key=secret_key)).user_key
+    args = {}
+    if user is not None:
+        auth.login(request, user)
+        return render(request, "change_pass.html", args)
+
+
+def change_password(request):
+    if request.POST:
+        user = auth.get_user(request)
+        user.set_password(request.POST.get('password', ''))
+        user.save()
+        return redirect("/articles/all/")
