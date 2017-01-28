@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     u'192.168.1.100',
+    u'192.168.1.101',
+    u'127.0.0.1',
+
 ]
 
 
@@ -83,7 +86,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'portdb.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'myprojectdb.sqlite3'),
     }
 }
 
@@ -122,12 +125,14 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
+
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+
+    os.path.join(BASE_DIR, "static/"),
     ]
 
 #Настройка отправки почты

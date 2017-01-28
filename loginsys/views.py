@@ -91,7 +91,11 @@ def restore_password(request):
     args = {}
     if request.POST:
         username = request.POST.get('email', '')
-        user = User.objects.get(username=username)
+        try:
+            user = User.objects.get(username=username)
+        except:
+            args["error"] = "Пользовател не найден"
+            return render(request, "restore_pass.html", args)
         euser = extUser.objects.get(user_key=user)
         euser.secret_key = ''.join(
             random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for x in range(30))

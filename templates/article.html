@@ -11,23 +11,23 @@
             <p>Comments:</p>
             {% for comment in Comments %}
                 <div class="comment">
-                    <div class="author_comment">Автор комментария</div>
+                    <div class="author_comment">{{ comment.comments_author.first_name }} {{ comment.comments_author.last_name }}</div>
                     <div class="text_comment">{{ comment.comments_text }}</div>
-                    <div class="time_comment">21 января 2017</div>
+                    <div class="time_comment">{{ comment.comments_date }}</div>
                 </div>
             {% endfor %}
-            <form class="form" action="/articles/addcomment/{{ Article.id }}/" method="post">
-                {% csrf_token %}
-                {{ form }}
-                <input type="submit" class="button" value="Отправить">
-            </form>
+            {% if username %}
+                <form class="form" action="/articles/addcomment/{{ Article.id }}/" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" class="button" value="Отправить">
+                </form>
+            {% endif %}
         </div>
     </div>
 
 {% endblock %}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda dignissimos dolor ea, earum fugiat
-illo itaque iure laboriosam magnam nesciunt officia quam repudiandae tempora voluptatem! Quis soluta veniam
-voluptatem.
+
 
 

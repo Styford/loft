@@ -17,9 +17,10 @@
                     <button type="submit" class="btn btn-default">Восстановить пароль</button>
                 </div>
             </div>
-            {% if login_error %}
-                <label class="error">{{ login_error }}</label>
+            {% if error %}
+                <label class="error">{{ error }}</label>
             {% endif %}
         </form>
     </div>
 {% endblock %}
+
