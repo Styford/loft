@@ -9,8 +9,36 @@
                 <p class="text-justify">{{ article.article_text|safe|truncatewords_html:100 }}</p>
                 <div class="comments_count"><i class="fa fa-comment"
                                                aria-hidden="true"></i>{{ article.comments_set.count }}</div>
-                <div class="article_autor"><a href="#">{{ article.article_author.first_name }} {{ article.article_author.last_name  }}</a></div>
+                <div class="article_autor"><a
+                        href="#">{{ article.article_author.first_name }} {{ article.article_author.last_name }}</a>
+                </div>
             </div>
         </div>
     {% endfor %}
+
+
+        <div class="row">
+            <div class="col-md-3 col-md-offset-5">
+                <ul class="pagination">
+                    {% if Articles.has_previous %}
+                        <li class="arrow"><a href="/articles/page/{{ Articles.previous_page_number }}/">&laquo;</a></li>
+                    {% else %}
+                        <li class="arrow"><a href="">&laquo;</a></li>
+                    {% endif %}
+                    {% for page in Articles.paginator.page_range %}
+                        {% if page == Articles.number %}
+                            <li class="current"><a href="/articles/page/{{ page }}/">{{ page }}</a></li>
+                        {% else %}
+                            <li><a href="/articles/page/{{ page }}">{{ page }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if Articles.has_next %}
+                        <li class="arrow"><a href="/articles/page/{{ Articles.next_page_number }}/">&raquo;</a></li>
+                    {% else %}
+                        <li class="arrow unavailable"><a href="">&raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
 {% endblock %}

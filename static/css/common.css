@@ -1,12 +1,19 @@
 body {
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
 }
+
 body a {
-    color: #3e8f3e;;
+    color: #123871;;
 }
+
+body a:hover {
+    color: #1b47af;
+    text-decoration: none;
+}
+
 .top-header {
     height: 50px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.4);
     -webkit-border-radius: 0 0 10px 10px;
     -moz-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
@@ -37,6 +44,16 @@ body a {
 
 .articles {
     margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    -webkit-box-shadow: 5px 6px 8px rgba(100, 100, 100, 0.3);
+    -moz-box-shadow: 5px 6px 8px rgba(100, 100, 100, 0.3);
+    box-shadow: 5px 6px 8px rgba(100, 100, 100, 0.3);
+    padding-left: 10px;
+    padding-bottom: 30px;
+    margin-bottom: 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .form textarea {
@@ -49,14 +66,18 @@ body a {
     margin-bottom: 15px;
 }
 
-.comment {
 
+
+.comment {
     background-color: rgba(100, 100, 100, 0.15);
-    -webkit-box-shadow: inset 1px 1px 30px rgba(100, 100, 100, 0.8);
-    -moz-box-shadow: inset 1px 1px 30px rgba(100, 100, 100, 0.8);
+    -webkit-box-shadow: 5px 6px 8px rgba(100, 100, 100, 0.3);
+    -moz-box-shadow: 5px 6px 8px rgba(100, 100, 100, 0.3);
     box-shadow: 5px 6px 8px rgba(100, 100, 100, 0.3);
     padding-left: 10px;
     margin-bottom: 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px
 }
 
 .author_comment, .time_comment {

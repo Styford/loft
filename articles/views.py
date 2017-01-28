@@ -5,6 +5,7 @@ from articles.forms import CommentForm
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import auth
 from datetime import datetime
+from django.core.paginator import Paginator
 
 # Create your views here.
 @csrf_protect
@@ -21,12 +22,14 @@ def article(request, article_id=1):
         return redirect("/auth/login/")
 
 
-def articles(request):
+def articles(request, page_number=1):
+    all_articles = Article.objects.all()
+    current_page = Paginator(all_articles, 5)
     args = {}
     args["username"] = auth.get_user(request).username
     if args["username"]:
         args["coms"] = Comments.objects.filter()
-        args["Articles"] = Article.objects.all()
+        args["Articles"] = current_page.page(page_number)
         return render(request, 'articles.html', args)
     else:
         return redirect("/auth/login/")
