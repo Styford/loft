@@ -10,6 +10,8 @@ class extUser(models.Model):
 
     user_key = models.OneToOneField(User)
     secret_key = models.CharField(max_length=30)
+    avatar = models.ImageField(upload_to="img/avatars/", null=True, blank=True)
+    department = models.CharField(max_length=255, null=True, blank=True)
 
     def __unicode__(self):                  # Название объекта в админке
         return self.user_key.username

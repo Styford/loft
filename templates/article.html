@@ -2,16 +2,23 @@
 {% block article %}
     {% load staticfiles %}
 
-    <div>
-        <div class="articles col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10">
+    <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-7 col-lg-offset-2">
+        <div class="articles">
             <h6>{{ Article.article_date }}</h6>
             <h4>{{ Article.article_title }}</h4>
-            <p class="text-justify">{{ Article.article_text }}</p>
-            <br>
+            <p class="text-justify">{{ Article.article_text | safe }}</p>
+            <div class="comments_count"><i class="fa fa-comment"
+                                           aria-hidden="true"></i>{{ Article.comments_set.count }}</div>
+            <div class="article_author"><a
+                    href="#">{{ Article.article_author.first_name }} {{ Article.article_author.last_name }}</a>
+            </div>
+            <hr>
             <p>Comments:</p>
             {% for comment in Comments %}
                 <div class="comment">
-                    <div class="author_comment"><a href="#">{{ comment.comments_author.first_name }} {{ comment.comments_author.last_name }}</a></div>
+                    <div class="author_comment"><a
+                            href="#">{{ comment.comments_author.first_name }} {{ comment.comments_author.last_name }}</a>
+                    </div>
                     <div class="text_comment">{{ comment.comments_text }}</div>
                     <div class="time_comment">{{ comment.comments_date }}</div>
                 </div>

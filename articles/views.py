@@ -23,12 +23,11 @@ def article(request, article_id=1):
 
 
 def articles(request, page_number=1):
-    all_articles = Article.objects.all()
+    all_articles = Article.objects.order_by("-article_date")
     current_page = Paginator(all_articles, 5)
     args = {}
     args["username"] = auth.get_user(request).username
     if args["username"]:
-        args["coms"] = Comments.objects.filter()
         args["Articles"] = current_page.page(page_number)
         return render(request, 'articles.html', args)
     else:

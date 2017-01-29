@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -33,13 +32,14 @@ ALLOWED_HOSTS = [
 
 ]
 
-
 # Application definition
 
 INSTALLED_APPS = [
     'articles',
     'extUser',
     'loginsys',
+    'ckeditor',
+    'ckeditor_uploader',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,7 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -89,7 +88,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'myprojectdb.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -109,7 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -123,19 +120,39 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/static/'
 
 STATICFILES_DIRS = [
 
     os.path.join(BASE_DIR, "static/"),
-    ]
+]
 
-#Настройка отправки почты
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [
+            ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'RemoveFormat',
+             'Image', 'Flash', 'Table', 'HorizontalRule', 'TextColor', 'BGColor', 'Smiley', 'SpecialChar', 'Link',
+             'Unlink', 'Anchor', 'NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'CreateDiv',
+             'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', 'BidiLtr', 'BidiRtl', 'Language', 'Source',
+             'Save', 'NewPage', 'Preview', 'Print', 'Templates', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord',
+             'Undo', 'Redo', 'Find', 'Replace', 'SelectAll', 'Scayt', 'Maximize', 'ShowBlocks']],
+        'height': 400,
+        'width': 900,
+        'removePlugins': 'stylesheetparser',
+        'extraPlugins': 'codesnippet',
+    },
+}
+
+# Настройка отправки почты
 EMAIL_HOST = "smtp.yandex.ru"
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True

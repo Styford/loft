@@ -2,6 +2,8 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor_uploader.fields import RichTextUploadingField
+
 
 # Create your models here.
 
@@ -14,7 +16,7 @@ class Article(models.Model):
         verbose_name_plural = "Статьи"  # Название модели в админке во множественном числе
 
     article_title = models.CharField(max_length=200, verbose_name="Заголовок статьи")
-    article_text = models.TextField(verbose_name="Текст статьи")
+    article_text = RichTextUploadingField(verbose_name="Текст статьи", blank=True, default='')
     article_date = models.DateTimeField(verbose_name="Дата публикации")
     # article_likes = models.IntegerField(default=0)
     article_author = models.ForeignKey(User)

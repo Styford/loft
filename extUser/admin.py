@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 class extUserAdmin(admin.ModelAdmin):
-    fields = ['secret_key', 'user_key',]
+    fields = ['secret_key', 'user_key', 'avatar']
     list_filter = ['user_key']
 
 admin.site.register(extUser, extUserAdmin)
