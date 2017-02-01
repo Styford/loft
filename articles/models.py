@@ -35,3 +35,4 @@ class Comments(models.Model):
     comments_article = models.ForeignKey(Article, verbose_name="Статья")
     comments_author = models.ForeignKey(User, verbose_name="Автор комментария", blank=True)
     comments_date = models.DateTimeField(blank=True)
+    comments_extraText = RichTextUploadingField(verbose_name="Ваш комментарий", blank=True, default='')

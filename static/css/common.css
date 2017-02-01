@@ -1,9 +1,14 @@
+.article img {
+    width:100%;
+}
+
+
 body {
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
 }
 
 body a {
-    color: #123871;
+    color: #2393fe;
 }
 
 body a:hover {
@@ -13,7 +18,7 @@ body a:hover {
 
 .top-header {
     height: 50px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.8);
     -webkit-box-shadow: 5px 6px 8px rgba(100, 100, 100, 0.3);
     -moz-box-shadow: 5px 6px 8px rgba(100, 100, 100, 0.3);
     box-shadow: 5px 6px 8px rgba(100, 100, 100, 0.3);
@@ -87,4 +92,8 @@ body a:hover {
 .article_author {
     position: absolute;
     left: 30px;
+}
+
+.django-ckeditor-widget {
+    width: 100%;
 }

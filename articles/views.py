@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import auth
 from datetime import datetime
 from django.core.paginator import Paginator
+import re
 
 # Create your views here.
 @csrf_protect
@@ -42,5 +43,20 @@ def addcomment(request, article_id):
             comment.comments_article = Article.objects.get(id=article_id)
             comment.comments_date = datetime.now()
             comment.comments_author = auth.get_user(request)
+            rep_img = re.findall(r'<img[^>]+>', comment.comments_extraText)
+            original_img = re.findall(r'<img[^>]+>', comment.comments_extraText)
+            i = 0
+            for rp in rep_img:
+                if re.findall(r'style[^>]+>', rp):
+                    rp = rp.replace(re.findall(r'style[^>]+>', rp)[0], "/></div>")
+                else:
+                    rp = rp.replace(r'/>', "/></div>")
+                rep_img[i] = rp.replace('<img',
+                                     '<div class="row"><img class="col-lg-8 col-lg-offset-2 col-md-12 col-sm-12 col-xs-12" ')
+                i += 1
+            i = 0
+            for rp in rep_img:
+                comment.comments_extraText = comment.comments_extraText.replace(original_img[i], rep_img[i])
+                i += 1
             form.save()
     return redirect('/articles/%s/' % article_id)

@@ -35,11 +35,11 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'ckeditor',
+    'ckeditor_uploader',
     'articles',
     'extUser',
     'loginsys',
-    'ckeditor',
-    'ckeditor_uploader',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -151,6 +151,8 @@ CKEDITOR_CONFIGS = {
         'extraPlugins': 'codesnippet',
     },
 }
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 26214400
 
 # Настройка отправки почты
 EMAIL_HOST = "smtp.yandex.ru"
