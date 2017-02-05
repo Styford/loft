@@ -4,11 +4,16 @@
     <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-7 col-lg-offset-2">
         {% for article in Articles %}
             <div class="articles">
-                <h6>{{ article.article_date }}</h6>
-                <h4><a href="/articles/{{ article.id }}/">{{ article.article_title }}</a></h4>
-                <p class="text-justify">{{ article.article_text|safe|truncatewords_html:100 }}</p>
+                <div class="preview">
+                    <h6>{{ article.article_date }}</h6>
+                    <h4><a href="/articles/{{ article.id }}/">{{ article.article_title }}</a></h4>
+                    <p class="text-justify">{{ article.article_text|safe|truncatewords_html:100 }}</p>
+                </div>
+                <a href="/articles/{{ article.id }}/#comments">
                 <div class="comments_count"><i class="fa fa-comment"
                                                aria-hidden="true"></i>{{ article.comments_set.count }}</div>
+                </a>
+                <img class="avatar" src="{{ article.article_author.extuser.avatar.url }}" alt="Аватарка">
                 <div class="article_author"><a
                         href="#">{{ article.article_author.first_name }} {{ article.article_author.last_name }}</a>
                 </div>

@@ -83,17 +83,60 @@ body a:hover {
     border-radius: 3px
 }
 
-.author_comment, .time_comment {
+.author_comment{
+    width: 100%;
+    text-align: left;
+    padding-right: 7px;
+    padding-top: 12px;
+}
+
+.time_comment {
     width: 100%;
     text-align: right;
     padding-right: 7px;
 }
 
 .article_author {
-    position: absolute;
+    margin-top: 20px;
     left: 30px;
 }
 
 .django-ckeditor-widget {
     width: 100%;
+}
+
+.avatar {
+    float: left;
+    top: 5px;
+    position: relative;
+    width: 33px;
+    height: 33px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.avatar:hover {
+    width: 50px;
+    height: 50px;
+    transition: all 0.2s;
+
+}
+.comment_media {
+    padding-right: 10px;
+}
+
+.preview img {
+    display: none;
+}
+
+.top_menu ul{
+    margin: 0;
+    padding: 0;
+    list-style-type:none;
+}
+
+.top_menu li {
+    display: inline-block;
 }

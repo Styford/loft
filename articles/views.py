@@ -52,7 +52,7 @@ def addcomment(request, article_id):
                 else:
                     rp = rp.replace(r'/>', "/></div>")
                 rep_img[i] = rp.replace('<img',
-                                     '<div class="row"><img class="col-lg-8 col-lg-offset-2 col-md-12 col-sm-12 col-xs-12" ')
+                                     '<div class="row comment_media"><img class="col-lg-8 col-lg-offset-2 col-md-12 col-sm-12 col-xs-12" ')
                 i += 1
             i = 0
             for rp in rep_img:

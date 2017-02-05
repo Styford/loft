@@ -24,11 +24,23 @@
 </head>
 
 <body style="background-image: url({% static "img/lether.png" %}">
-
+<div class="container">
+    <div class="row">
+        <ul class="top_menu">
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+            <li>Four</li>
+            <li>Five</li>
+            <li>Six</li>
+        </ul>
+    </div>
+</div>
 <div class="col-md-10 col-md-offset-1 col-lg-7 col-lg-offset-2 col-sm-10 col-sm-offset-1">
     <div class="top-header">
-        <a href="/articles/all/"><img class="logo" src="{% static "img/idTHUIWcuZk.jpg" %} " width='50px'
-                                      height='50px' alt="Logo"></a>
+        <a href="/articles/all/">
+            <img class="logo" src="{% static "img/idTHUIWcuZk.jpg" %} " width='50px' height='50px' alt="Logo">
+        </a>
         <div class="auth">
             {% if username %}
                 <span><a href="/auth/logout/">Выйти ({{ username }})</a></span>

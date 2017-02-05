@@ -9,17 +9,20 @@
             <p class="text-justify">{{ Article.article_text | safe }}</p>
             <div class="comments_count"><i class="fa fa-comment"
                                            aria-hidden="true"></i>{{ Article.comments_set.count }}</div>
+            <img class="avatar" src="{{ Article.article_author.extuser.avatar.url }}" alt="Аватарка">
             <div class="article_author"><a
                     href="#">{{ Article.article_author.first_name }} {{ Article.article_author.last_name }}</a>
             </div>
             <hr>
+            <a id="comments" name="comments"></a>
             <p>Комментарии:</p>
             {% for comment in Comments %}
                 <div class="comment">
+                    <img class="avatar" src="{{ comment.comments_author.extuser.avatar.url }}" alt="Аватарка">
                     <div class="author_comment"><a
                             href="#">{{ comment.comments_author.first_name }} {{ comment.comments_author.last_name }}</a>
                     </div>
-                    <div class="text_comment">{{ comment.comments_extraText | safe  | linebreaks}}</div>
+                    <div class="text_comment">{{ comment.comments_extraText | safe  | linebreaks }}</div>
                     <div class="time_comment">{{ comment.comments_date }}</div>
                 </div>
             {% endfor %}
