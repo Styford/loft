@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Widget</title>
+    <link rel="stylesheet" href="{% static "css/SB_style.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "libs/font-awesome-4.2.0/css/font-awesome.min.css" %}"/>
+</head>
+<body style=" -webkit-background-size:100% ;background-size: 100%; background-image: url({% static "img/1npz.jpg" %})">
+
+<div id="unit1">
+    <div class="circle" id="main" onclick="isClick(id)"></div>
+
+
+    <div class="dropdown">
+        <a href="#" class="dropdown-toggle-js" data-toggle="dropdown">
+            <div class="circle" id="contax1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Пункт 1</a></li>
+            <li><a href="#">Пункт 2</a></li>
+            <li><a href="#">Пункт 3</a></li>
+        </ul>
+    </div>
+
+
+    <a href="/sandbox/2/">
+        <div class="circle" id="PI"><i class="fa fa-paint-brush" aria-hidden="true"></i></div>
+    </a>
+    <a href="/sandbox/3/">
+        <div class="circle" id="docs"><i class="fa fa-calculator" aria-hidden="true"></i></div>
+    </a>
+
+    <div id="contax">
+        <div class="circle dropdown-toggle" data-toggle="dropdown" id="docs"><i class="fa fa-calculator"
+                                                                                aria-hidden="true"></i></div>
+        <ul class="dropdown-menu">
+            <li><a href="#">Пункт 1</a></li>
+            <li><a href="#">Пункт 2</a></li>
+            <li><a href="#">Пункт 3</a></li>
+        </ul>
+    </div>
+
+</div>
+{#<div class="circle" id="other1"><i class="fa fa-calculator" aria-hidden="true"></i></div>#}
+{#<div class="circle" id="other2"><i class="fa fa-calculator" aria-hidden="true"></i></div>#}
+{#<div class="circle" id="other3"><i class="fa fa-calculator" aria-hidden="true"></i></div>#}
+{#<div class="circle" id="other4"><i class="fa fa-calculator" aria-hidden="true"></i></div>#}
+{#<div class="circle" id="other5"><i class="fa fa-calculator" aria-hidden="true"></i></div>#}
+
+<div id="new_pick">
+    <div class="circle" id="ONE" onclick="Menu(id)"></div>
+
+
+    <div class="circle" id="THREE"></div>
+
+    <div class="btn-group">
+        <button type="button" data-toggle="dropdown" id="TWO" class="circle dropdown-toggle"><i class="fa fa-calculator"
+                                                                                                aria-hidden="true"></i>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">Пункт 1</a></li>
+            <li><a href="#">Пункт 2</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Пункт 3</a></li>
+        </ul>
+    </div>
+
+
+
+    <div class="btn-group">
+        <button type="button" data-toggle="dropdown" id="FOUR" class="circle dropdown-toggle"><i class="fa fa-calculator"
+                                                                                                aria-hidden="true"></i>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">Пункт 1</a></li>
+            <li><a href="#">Пункт 2</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Пункт 3</a></li>
+        </ul>
+    </div>
+
+</div>
+
+
+</body>
+
+<script src="{% static 'js/jquery-3.1.1.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/SB_script.js' %}"></script>
+
+</html>

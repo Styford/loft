@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+{% block article %}
+    {% load staticfiles %}
+    <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-7 col-lg-offset-2">
+        <div class="articles">
+            <form class="form" action="/articles/addarticle/" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" class="button" value="Отправить">
+            </form>
+        </div>
+    </div>
+{% endblock %}

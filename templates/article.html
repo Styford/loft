@@ -22,7 +22,7 @@
                     <div class="author_comment"><a
                             href="#">{{ comment.comments_author.first_name }} {{ comment.comments_author.last_name }}</a>
                     </div>
-                    <div class="text_comment">{{ comment.comments_extraText | safe  | linebreaks }}</div>
+                    <div class="text_comment">{{ comment.comments_extraText | safe | linebreaks }}</div>
                     <div class="time_comment">{{ comment.comments_date }}</div>
                 </div>
             {% endfor %}

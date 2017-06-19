@@ -1,7 +1,7 @@
-.article img {
-    width:100%;
-}
 
+.article img {
+    width: 100%;
+}
 
 body {
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
@@ -27,14 +27,6 @@ body a:hover {
 .logo {
     position: absolute;
     z-index: 3;
-}
-
-.auth {
-    position: relative;
-    text-align: right;
-    top: 15px;
-    right: 15px;
-    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
 }
 
 .comments_count {
@@ -83,7 +75,7 @@ body a:hover {
     border-radius: 3px
 }
 
-.author_comment{
+.author_comment {
     width: 100%;
     text-align: left;
     padding-right: 7px;
@@ -123,6 +115,7 @@ body a:hover {
     transition: all 0.2s;
 
 }
+
 .comment_media {
     padding-right: 10px;
 }
@@ -131,12 +124,48 @@ body a:hover {
     display: none;
 }
 
-.top_menu ul{
+.top_menu {
+    height: 50px;
+    background-color: #666666;
+    margin-left: 50px;
+}
+
+.top_menu ul {
     margin: 0;
     padding: 0;
-    list-style-type:none;
+    list-style-type: none;
+}
+
+.top_menu a {
+    padding: 0 10px;
+    display: block;
+    line-height: 50px;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
 }
 
 .top_menu li {
-    display: inline-block;
+    float: left;
+    -webkit-box-shadow: inset 1px 0 0 rgba(138, 134, 134, 0.5);
+    -moz-box-shadow: inset 1px 0 0 rgba(138, 134, 134, 0.5);
+    box-shadow: inset 1px 0 0 rgba(138, 134, 134, 0.5);
+
+}
+
+.top_menu li.active a,
+.top_menu li:hover a {
+    background-color: #fff;
+}
+
+.add_article {
+    margin-top: 50px;
+}
+
+.add_article label {
+    display: block;
+}
+
+#id_article_title {
+    width: 100%;
 }

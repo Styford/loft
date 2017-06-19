@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% block article %}
+    {% load staticfiles %}
+    <div class="col-md-10 col-md-offset-1 col-lg-7 col-lg-offset-2 col-sm-10 col-sm-offset-1">
+        <div class="add_article">
+            {% if username %}
+                <form class="form" action="/articles/add/" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" class="button" value="Отправить">
+                </form>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        CKEDITOR.replace('article_text');
+    </script>
+
+{% endblock %}

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
+
 # Create your models here.
 
 
@@ -31,8 +32,9 @@ class Comments(models.Model):
         verbose_name = "Комментарий"  # Название модели в админке в единственном числе
         verbose_name_plural = "Комментарии"  # Название модели в админке во множественном числе
 
-    #comments_text = models.TextField(verbose_name="Хотите прокомментировать?")
+
     comments_article = models.ForeignKey(Article, verbose_name="Статья")
     comments_author = models.ForeignKey(User, verbose_name="Автор комментария", blank=True)
     comments_date = models.DateTimeField(blank=True)
     comments_extraText = RichTextUploadingField(verbose_name="Ваш комментарий", blank=True, default='')
+

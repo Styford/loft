@@ -29,7 +29,7 @@ ALLOWED_HOSTS = [
     u'192.168.1.100',
     u'192.168.1.101',
     u'127.0.0.1',
-
+    u'elesypro.ru',
 ]
 
 # Application definition
@@ -37,6 +37,7 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
+    #'redactor',
     'articles',
     'extUser',
     'loginsys',
@@ -85,7 +86,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'myprojectdb.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'myprojectdb2.sqlite3'),
     }
 }
 
@@ -160,3 +161,6 @@ EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = "stepan.syzganov@ya.ru"
 EMAIL_HOST_PASSWORD = "Newterr1906421"
+
+REDACTOR_OPTIONS = {'lang': 'en'}
+REDACTOR_UPLOAD = 'uploads/'
